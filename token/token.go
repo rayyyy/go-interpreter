@@ -1,11 +1,11 @@
 package token
 
-// Type トークンタイプ。INTにしたら高速になるかも
-type Type string
+// TokenType トークンタイプ。INTにしたら高速になるかも
+type TokenType string
 
 // Token トークンのデータ構造
 type Token struct {
-	Type    Type
+	Type    TokenType
 	Literal string
 }
 
@@ -44,3 +44,16 @@ const (
 	// LET 変数
 	LET = "LET"
 )
+
+var keywords = map[string]TokenType{
+	"fn":  FUNCTION,
+	"let": LET,
+}
+
+// LookupIdent 適切な識別子を探す
+func LookupIdent(ident string) TokenType {
+	if tok, ok := keywords[ident]; ok {
+		return tok
+	}
+	return IDENT
+}
