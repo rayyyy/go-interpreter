@@ -24,6 +24,19 @@ const (
 	ASSIGN = "="
 	// PLUS 足し算
 	PLUS = "+"
+	// MINUS 引き算
+	MINUS = "-"
+	// BANG ビックリマーク
+	BANG = "!"
+	// ASTERISK アスタリスク
+	ASTERISK = "*"
+	// SLASH スラッシュ
+	SLASH = "/"
+
+	// LT <
+	LT = "<"
+	// GT >
+	GT = ">"
 
 	// COMMA カンマ
 	COMMA = ","
@@ -43,11 +56,31 @@ const (
 	FUNCTION = "FUNCTION"
 	// LET 変数
 	LET = "LET"
+
+	// TRUE 真
+	TRUE = "TRUE"
+	// FALSE 偽
+	FALSE = "FALSE"
+	// IF if
+	IF = "IF"
+	// ELSE else
+	ELSE = "ELSE"
+	// RETURN return
+	RETURN = "RETURN"
+	// EQ ==
+	EQ = "=="
+	// NOT_EQ !=
+	NOT_EQ = "!="
 )
 
 var keywords = map[string]TokenType{
-	"fn":  FUNCTION,
-	"let": LET,
+	"fn":     FUNCTION,
+	"let":    LET,
+	"true":   TRUE,
+	"false":  FALSE,
+	"if":     IF,
+	"else":   ELSE,
+	"return": RETURN,
 }
 
 // LookupIdent 適切な識別子を探す
